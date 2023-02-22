@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+*,*::before,*,::after{
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body{
+    margin:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+}
+
+.world{
+    overflow: hidden;
+    position: relative;
+    background-color: #9fdd4f;
+}
+
+.score{
+    position: absolute;
+    font-size: 3vmin;
+    right:1vmin;
+    top:1vmin;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0 ;
+    }
+  }
+.start-screen{
+    position: absolute;
+    font-size: 4vmin;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-family: 'Press Start 2P', cursive;
+}
+
+.hide{
+    display: none;
+}
+
+.ground{
+    position: absolute;
+    width: 300%;
+    bottom: 0;
+    --left:0;
+    left:calc(var(--left)*1%);
+}
+
+.guy{
+  position: absolute;
+  left: 1%;
+  height: 30%;
+  --bottom:0;
+  bottom:calc(var(--bottom)*1%);
+}
+
+.spikes-css{
+    position: absolute;
+    left: calc(var(--left)*1%);
+    height: 30%;
+    bottom:0;
+}
+
+.game-over{
+    background-color: #f3451e; 
+}
