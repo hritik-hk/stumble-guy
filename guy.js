@@ -12,13 +12,15 @@ let currenFrameTime;
 let yVelocity;
 
 export function setUpGuy(){
-  isJumping=true;
+  isJumping=false;
   guyFrame=0;
   currenFrameTime=0;
   yVelocity=0;
   setCustomProperty(guyElem, "--bottom", 0); 
   document.removeEventListener("keydown",onJump);
+  document.removeEventListener("touchstart", onJump);
   document.addEventListener("keydown",onJump);
+  document.addEventListener("touchstart", onJump);
 }
 
 export function setGuyLose(){
@@ -51,7 +53,9 @@ function handleRun(delta,speedScale){
 }
 
 function handleJump(delta){
-    if(!isJumping) return;
+    if(!isJumping){
+        return; 
+    }
 
     incrementCustomProperty(guyElem,"--bottom", yVelocity*delta);
 
@@ -65,8 +69,17 @@ function handleJump(delta){
 }
 
 function onJump(e){
-    if(e.code!=="Space" || isJumping) return;
+    if(e.type=="touchstart" && !isJumping){
+        yVelocity=jump_speed;
+      isJumping=true;
+         return;
+    }
+    if(e.code=="Space" && !isJumping){
+        yVelocity=jump_speed;
+        isJumping=true;
+        return;
+    }
 
-    yVelocity=jump_speed;
-    isJumping=true;
+    // yVelocity=jump_speed;
+    // isJumping=true;
 }

@@ -38,7 +38,7 @@ body{
   }
 .start-screen{
     position: absolute;
-    font-size: 4vmin;
+    font-size: 3vmin;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
