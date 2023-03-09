@@ -46,7 +46,6 @@ function handleRun(delta,speedScale){
     if(currenFrameTime>= frame_time){
         guyFrame=(guyFrame+1)%guy_frame_count; //similar to circular array
         guyElem.src=`./imgs/guy${guyFrame}.png`;
-        console.log(guyElem.src);
         currenFrameTime-=frame_time;
     }
     currenFrameTime+= delta*speedScale;
